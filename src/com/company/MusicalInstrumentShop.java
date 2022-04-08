@@ -49,4 +49,12 @@ public class MusicalInstrumentShop {
         }
         return canAffordAn;
     }
+    public boolean hasInstruments() {
+        boolean inventoryAvailable = true;
+        for (int i = 0; i < inventory.size(); i++) {         //loop through to see if inventory available
+             if (inventory.isEmpty()) {                      // determine if any item is available
+             inventoryAvailable = false;
+             }
+        }  return inventoryAvailable;
+    }
 }

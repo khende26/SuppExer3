@@ -68,5 +68,6 @@ public class Main {
 
         System.out.println(inventoryList.canAffordInstrument(3, 500));
         System.out.println(inventoryList.canAffordAnInstrument(500));
+        System.out.println(inventoryList.hasInstruments());
     }
 }

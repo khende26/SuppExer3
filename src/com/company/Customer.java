@@ -39,12 +39,13 @@ public class Customer {
         String newePin= "";                           //initialize newePin
         for(Instrument ePin : instrumentPurchased) { //loop through each instrument
             newePin = newePin + ePin.getName();      //get name for each instrument and add tp mewePin
-
-
-
         }
 
         return newePin;
+    }
+    public void purchaseInstrument(Instrument newInstrument) {
+        //add instrument to list of instrumentPurchased in class
+        //deduct the cost of the instrument from the customer amount of money
     }
 
 }
