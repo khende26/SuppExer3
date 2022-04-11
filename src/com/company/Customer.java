@@ -32,20 +32,24 @@ public class Customer {
     }
 
     public void addInstrumentPurchased(Instrument purchasedInstrument) {
+
         instrumentPurchased.add(purchasedInstrument);
     }
 
     public String enumeratePurchasedInstrumentNames() {
         String newePin= "";                           //initialize newePin
         for(Instrument ePin : instrumentPurchased) { //loop through each instrument
-            newePin = newePin + ePin.getName();      //get name for each instrument and add tp mewePin
+            newePin = newePin + ePin.getName();      //get name for each instrument and add tp newePin
         }
 
         return newePin;
     }
-    public void purchaseInstrument(Instrument newInstrument) {
-        //add instrument to list of instrumentPurchased in class
-        //deduct the cost of the instrument from the customer amount of money
+    public void purchaseInstrument(Instrument newpurchInstrument) {
+          newpurchInstrument.getName();                         // get name of purchased instrument
+          instrumentPurchased.add(newpurchInstrument);            //add instrument to list of instrumentPurchased in class
+          amtOfMoney = getAmtOfMoney() - newpurchInstrument.getCost();       //deduct the cost of the instrument from the customer amount of money
+        instrumentPurchased.get(0).describeInstrument();
+        System.out.println(amtOfMoney);
     }
 
 }

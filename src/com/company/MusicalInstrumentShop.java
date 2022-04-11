@@ -1,6 +1,5 @@
 package com.company;
 
-import javax.naming.Name;
 import java.util.List;
 
 public class MusicalInstrumentShop {
@@ -39,7 +38,7 @@ public class MusicalInstrumentShop {
         return canAfford;
     }
 
-    public boolean canAffordAnInstrument(int custMoney) {
+    public boolean canAffordAnInstrument(int invNo, int custMoney) {
         boolean canAffordAn = false;
         for (int i = 0; i < inventory.size(); i++) {       // need to go through each instrument and compare cost to custMoney
             if (inventory.get(i).getCost() <= custMoney) {    // if cost less than c money
@@ -48,6 +47,12 @@ public class MusicalInstrumentShop {
             }
         }
         return canAffordAn;
+    }
+    public Instrument sellInstrument(int invNumber) {
+            Instrument newInstr = inventory.get(invNumber -1);      //get the inventory item
+            inventory.remove(invNumber-1); //only removing index need to remove object? //remove item from inventory once a match is found
+
+         return newInstr;
     }
     public boolean hasInstruments() {
         boolean inventoryAvailable = true;

@@ -2,6 +2,7 @@ package com.company;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class Main {
 
@@ -66,8 +67,45 @@ public class Main {
 
         inventoryList.listInventory();
 
-        System.out.println(inventoryList.canAffordInstrument(3, 500));
-        System.out.println(inventoryList.canAffordAnInstrument(500));
-        System.out.println(inventoryList.hasInstruments());
+      //  System.out.println(inventoryList.canAffordInstrument(3, 500));
+      //  System.out.println(inventoryList.canAffordAnInstrument(500));
+      //  System.out.println(inventoryList.hasInstruments());
+      //  Customer cust = new Customer("Karri", 1000);
+      //  cust.purchaseInstrument(allInstruments.get(0));
+        Scanner myScanner = new Scanner(System.in);
+
+        System.out.println("Welcome to the must shop would you like to see " +
+                "a list of instruments.  \n Press 1 for Yes \n Press 2 to leave the store");
+        int userInput = myScanner.nextInt();
+        myScanner.nextLine();
+        if(userInput == 1){
+            inventoryList.listInventory();
+            System.out.println("\n Do you wish to purchase an instrument? \n Press 1 for Yes, " +
+                    "\n Press 2 to purchase more than one instrument \n Press 3 to leave the shop");
+            userInput = myScanner.nextInt();
+            if(userInput == 1) {
+                System.out.println("Please enter your name");
+                String username = myScanner.nextLine();
+                System.out.println("Please enter the amount of money you have to spend");
+                myScanner.nextLine();
+                int custMoney = myScanner.nextInt();
+               Customer cust1 = new Customer(username, custMoney);
+                inventoryList.listInventory();
+                System.out.println("Choose the # of the item you would like to purchase");
+                int invNo = myScanner.nextInt();
+                inventoryList.sellInstrument(invNo);
+                inventoryList.hasInstruments();
+                System.out.println("Is this instrument available? " + inventoryList.hasInstruments());
+
+
+     //         inventoryList.canAffordAnInstrument(invNo, custMoney);
+     //         System.out.println("Which instrument would you like to purchase");
+
+
+
+
+            }
+        }
+       }
     }
-}
+
