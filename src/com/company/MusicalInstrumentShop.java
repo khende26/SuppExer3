@@ -30,9 +30,9 @@ public class MusicalInstrumentShop {
     public boolean canAffordInstrument(int invNo, int custMoney) {
         boolean canAfford = false;
         //need to get an inventory number
-        if (inventory.get(invNo).getCost() <= custMoney) {
+        if (inventory.get(invNo-1).getCost() <= custMoney) {
             canAfford = true;
-            System.out.println(inventory.get(invNo).getName());
+            System.out.println(inventory.get(invNo-1).getName());
         }
         //need to compare amount of money
         return canAfford;
@@ -40,12 +40,13 @@ public class MusicalInstrumentShop {
 
     public boolean canAffordAnInstrument(int invNo, int custMoney) {
         boolean canAffordAn = false;
-        for (int i = 0; i < inventory.size(); i++) {       // need to go through each instrument and compare cost to custMoney
-            if (inventory.get(i).getCost() <= custMoney) {    // if cost less than c money
+        Instrument instrument = inventory.get(invNo -1);
+          if (instrument.getCost() <= custMoney) {    // if cost less than c money
                 canAffordAn = true;          //set boolean canAffordAn to true
-                System.out.println("you have enough money to buy " +inventory.get(i).getName() + " , " + inventory.get(i).getCost());
+                System.out.println("you have enough money to buy " + instrument.getName() + " , " +
+                        instrument.getCost());
             }
-        }
+
         return canAffordAn;
     }
     public Instrument sellInstrument(int invNumber) {
@@ -55,11 +56,11 @@ public class MusicalInstrumentShop {
          return newInstr;
     }
     public boolean hasInstruments() {
-        boolean inventoryAvailable = true;
-        for (int i = 0; i < inventory.size(); i++) {         //loop through to see if inventory available
+
              if (inventory.isEmpty()) {                      // determine if any item is available
-             inventoryAvailable = false;
+             return  false;
              }
-        }  return inventoryAvailable;
+          return true;
     }
+
 }

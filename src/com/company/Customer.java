@@ -49,7 +49,7 @@ public class Customer {
           instrumentPurchased.add(newpurchInstrument);            //add instrument to list of instrumentPurchased in class
           amtOfMoney = getAmtOfMoney() - newpurchInstrument.getCost();       //deduct the cost of the instrument from the customer amount of money
         instrumentPurchased.get(0).describeInstrument();
-        System.out.println(amtOfMoney);
+        System.out.println("You have $" + amtOfMoney + " after your purchase");
     }
 
 }
